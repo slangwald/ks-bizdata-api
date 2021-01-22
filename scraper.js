@@ -25,7 +25,7 @@ async function fetchUrlsFromMainCategories() {
             "#content > article > div > table > tbody > tr > td:nth-child(2) > a",
             e => e.map((a) => a['href']));
         await listOfUrls.forEach((v) => {
-            //Url.upsert({url: v, status: 'TO_FETCH'})
+            Url.upsert({url: v, status: 'TO_FETCH'})
         })
         console.log(`Found ${listOfUrls.length} in Category ${i}`);
         await page.click("#hero > div > div.hero-content-primary > div > div > div:nth-child(5) > span > span.selection > span");
